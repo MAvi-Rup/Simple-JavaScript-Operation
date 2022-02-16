@@ -23,3 +23,8 @@ document.getElementById('calculate-total').addEventListener('click',(e)=>{
        alert('Expenses can not be negative value')
    }
 })
+
+document.getElementById('save-amount').addEventListener('click',()=>{
+    const saveinput = getInputField('save')
+    
+})
