@@ -63,10 +63,14 @@ document.getElementById('save-amount').addEventListener('click',()=>{
             remainingBalance.innerText = lastBalance.toFixed(2);
             document.getElementById('alert-info').style.display= 'none'
         }else{
+            document.getElementById('saving-total').innerText= ''
+            document.getElementById('remaining-total').innerText= ''
             return errMessage("Your Balance Cannot be 0")
         }
     }else{
         document.getElementById('alert-info').style.display= 'block'
+        document.getElementById('saving-total').innerText= ''
+        document.getElementById('remaining-total').innerText= ''
         return errMessage("Please fill-up the input field correctly")
     }
 })
