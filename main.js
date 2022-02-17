@@ -11,7 +11,7 @@ document.getElementById('calculate-total').addEventListener('click',(e)=>{
     const clothesTotal = getInputField('clothes')
     const totalExpense = document.getElementById('expenses-total')
     const totalBalance = document.getElementById('balance-total')
-   if(foodTotal>0 && rentTotal>0 && clothesTotal>0){
+   if(foodTotal>0 && rentTotal>0 && clothesTotal>0 && inputIncome>0){
        const tottal= foodTotal+rentTotal+clothesTotal
        if(tottal<inputIncome){
            totalExpense.innerText = tottal;
@@ -20,11 +20,25 @@ document.getElementById('calculate-total').addEventListener('click',(e)=>{
            alert('Insufficient Balance in your Account')
        }
    }else{
-       alert('Expenses can not be negative value')
+       alert('Please enter the right value on the field')
    }
 })
 
 document.getElementById('save-amount').addEventListener('click',()=>{
+    //Saving Amount
     const saveinput = getInputField('save')
-    
+    const totalBalance = document.getElementById('balance-total')
+    const savingAmount = document.getElementById('saving-total')
+    if(saveinput>0){
+        const savingMoney = (saveinput*totalBalance.innerText)/100
+        savingAmount.innerText = savingMoney;
+        const remainingBalance = document.getElementById('remaining-total')
+        const lastBalance = totalBalance.innerText - savingMoney
+        remainingBalance.innerText = lastBalance
+    }else{
+        alert('Please input a positive percentage of saving amount')
+    }
+
+    //Remainning Balance
+
 })
